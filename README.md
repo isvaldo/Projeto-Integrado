@@ -92,7 +92,5 @@ tarefas e recursos que fomentem a sustentabilidade do grupo.
 
 
 ##Técnicas de Programação
-* ?????????
-* ?????????
-* ?????????
-* ?????????
+* L.P. falou (na aula do dia 28/10) que está fazendo um "tutorial" sobre como fazer uma calculadora de pegadas de Carbono
+* para a gente e que esse vai ser nosso P.I. (progamar essa calculadora).
