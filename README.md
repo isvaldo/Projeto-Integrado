@@ -1,3 +1,5 @@
+# issue ficam ali >>
+
 ##A FUNDAMENTAÇÃO E REGRAS DO PI
 
 O objetivo do Projeto Integrado é relacionar e aproximar as 
