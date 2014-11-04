@@ -3,9 +3,9 @@
 #include <stdlib.h>
 #include <limits.h>
 
-void calculo_soma(int vet[]);
+void calculo_soma(int vet[]);//declaração ou protótipo da função
 
-int qt_elementos, i, menu;
+int qt_elementos, i, menu; //declaração de variáveis globais, para também poderem ser usadas na função
 
 main(){
 
@@ -39,7 +39,7 @@ main(){
     printf("\n\n(1) - Calcula a soma de todos os elementos gerados aleatoriamente\n");
     printf("(2) - Calcula a soma de todos os elementos gerados aleatoriamente e encontrar o maior valor\n");
     printf("(3) - Calcula a soma de todos os elementos gerados aleatoriamente, encontrar o maior valor e o menor\n");
-    printf("\n\nO que deseja fazer? ");
+    printf("\n\nO que deseja fazer? ");//Mudei um pouco o "desing" dessa parte
     scanf ("%d", &menu);
     printf("\n");
 
@@ -81,6 +81,7 @@ main(){
 
 }
 
+//Função qu eu fiz pra fazer a soma e mostrar o maior e o menor núemero
 void calculo_soma(int vet[]) {
     int soma_Telementos = 0, valor_maior = INT_MIN, valor_menor = INT_MAX;
 
