@@ -7,15 +7,26 @@ main(){
 
     // OBS trocar int para float, alterar nome de i
     // Programa com tendencias a gerar numeros aleatorios entre 4 a 5 digitos
+	// Numeros grandes na soma retorna valor negativo
 
-    // Titulo
+    // Retornar o horário do sistema
+    struct tm *local;
+    time_t t;
+    t= time(NULL);
+    local=localtime(&t);
+    // Retornar a hora
+    int hora     = local->tm_hour,
+        minutos  = local->tm_min,
+        segundos = local->tm_sec;
+
+    // Titulo (cmd)
     system ("title Coletando dados de tempo de execução 1.0");
 
-    // Cor de fundo/Cor da letra
+    // Cor de fundo/Cor da letra (cmd)
     system ("color 0a");
 
     // Variáveis
-    int qt_elementos, i, menu, soma_Telementos = 0, valor_maior = 0, valor_menor = INT_MAX;
+    int qt_elementos, i, menu, soma_Telementos = 0, valor_maior = 0, valor_menor = INT_MAX, tempo_inicio, tempo_final, tempo_total;
 
     // Solicita quantidade de elementos(vetor)
     printf("Numero de elementos (maximo de 500.000): ");
@@ -29,10 +40,12 @@ main(){
     srand(time(NULL));
 
     // Armazena numero aleatorio de 0 a 500000(quinhentos mil), gerado por uma seguencia do tempo atual da maquina e armazena no vetor.
+        printf("\nInicio: %d:%d:%d", hora, minutos, segundos);
     for(i = 0; i < qt_elementos; i++){
         n_elementos[i] = rand() % (500000 - 1);
         printf("%d ", n_elementos[i]);
     }
+        printf("\nFim: %d:%d:%d", hora, minutos, segundos);
 
     // Menu
     printf("\n\n O que deseja fazer?\n");
@@ -91,11 +104,5 @@ main(){
         default:
             break;
     }
-
-    /* laço padrao dos elementos - retirar no final
-    for(i = 0; i < qt_elementos; i++){
-        printf("%d\n", n_elementos[i]);
-    }
-    */
 
 }
