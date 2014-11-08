@@ -3,20 +3,32 @@
 #include <stdio.h>
 #include <limits.h>
 #include <time.h>
+#include <locale.h>
 /*funções*/
 
 // Essa variavel é global, pois é utilizada em todos as funções do programa
 int NElementos;
+
+void localidade(){
+    /* Reconhece acentuação */
+    setlocale(LC_ALL,"");
+}
+
 void pegaNumeroElementos(){
     /*Pega o numero de elementos e seta na variavel*/
     puts("Informe o numero de elementos que você quer trabalhar [0-500.000]");
     scanf(" %d",&NElementos);
-    }
+}
 
 int geraElementos(int elementos[]) {
-/* função que gera numeros aleatorios */
-
+    /* função que gera numeros aleatorios */
+    srand(time(NULL));
+    int i;
+    for (i=0;i<NElementos;i++){
+        elementos[i] = rand() % (500000 - 1);
+    }
 }
+
 void maior(int vet[]){
     /*retorna o maior valor de uma array*/
     int i;
@@ -37,7 +49,6 @@ void menor(int vet[]){
     printf("Menor Numero: %d\n",menor);
 }
 
-
 void soma(int vet[]){
     /*Retorna a soma de todos elementos de um vetor*/
     int i;
@@ -45,7 +56,7 @@ void soma(int vet[]){
     for (i=0;i<NElementos;i++) {
         soma += vet[i];
     }
-    printf("Soma total: %d",soma);
+    printf("Soma total: %d\n",soma);
 
 }
 
@@ -69,6 +80,7 @@ void mostraMenu() {
     puts("# 3) Calcula a soma de todos e encontrar o maior valor e o menor    #");
     puts("#####################################################################\n");
 }
+
 void mostraResultado(int opcao, int vet[]){
     /* Mostra resultado na tela*/
     switch(opcao) {
@@ -85,7 +97,7 @@ void mostraResultado(int opcao, int vet[]){
         menor(vet);
         break;
     default:
-        puts("Opção Invalida");
+        puts("Opção Inválida");
         break;
     }
     puts("precione qualquer tecla para continuar");
@@ -100,9 +112,10 @@ void limparTela() {
 
 /* inicio do programa */
 main () {
+    localidade();
     pegaNumeroElementos();
     int elementos[NElementos];
-    elementos = geraElementos(elementos);
+    elementos[NElementos] = geraElementos(elementos);
     limparTela();
 
     /*forma um loop infinito mostrando as opções*/
