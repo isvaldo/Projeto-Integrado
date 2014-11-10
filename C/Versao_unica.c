@@ -46,7 +46,7 @@ void maior(int vet[]){
     int i;
     int maior=INT_MIN;
     // Tempo inicial
-    printf("Tempo inicial: ");
+    puts("Tempo inicial: ");
     mostraTempo();
     // Diferença em segundos
     clock_t tempo;
@@ -57,7 +57,7 @@ void maior(int vet[]){
         }
 
     // Tempo final
-    printf("Tempo final  : ");
+    puts("Tempo final  : ");
     mostraTempo();
     printf("Tempo total  : %4.3f segundos\n\n",(clock() - tempo) / (double)CLOCKS_PER_SEC);
     printf("[Maior Numero: %d]\n\n",maior);
@@ -68,7 +68,7 @@ void menor(int vet[]){
     int i;
     int menor=INT_MAX;
     // Tempo inicial
-    printf("Tempo inicial: ");
+    puts("Tempo inicial: ");
     mostraTempo();
     // Diferença em segundos
     clock_t tempo;
@@ -79,7 +79,7 @@ void menor(int vet[]){
         }
 
     // Tempo final
-    printf("Tempo final  : ");
+    puts("Tempo final  : ");
     mostraTempo();
     printf("Tempo total  : %4.3f segundos\n\n",(clock() - tempo) / (double)CLOCKS_PER_SEC);
     printf("[Menor Numero: %d]\n",menor);
@@ -90,7 +90,7 @@ void soma(int vet[]){
     int i;
     int long soma=0;
     // Tempo inicial
-    printf("Tempo inicial: ");
+    puts("Tempo inicial: ");
     mostraTempo();
     // Diferença em segundos
     clock_t tempo;
@@ -101,7 +101,7 @@ void soma(int vet[]){
     }
 
     // Tempo final
-    printf("Tempo final  : ");
+    puts("Tempo final  : ");
     mostraTempo();
     // Mostra diferença em segundos
     printf("Tempo total  : %4.3f segundos\n\n",(clock() - tempo) / (double)CLOCKS_PER_SEC);
