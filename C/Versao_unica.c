@@ -4,7 +4,7 @@
 #include <time.h>
 #include <locale.h>
 
-/*funções*/
+/* funções */
 
 // Essa variável é global, pois é utilizada em quase todas as funções do programa
 int NElementos;
@@ -15,20 +15,20 @@ void localidade(){
 }
 
 void pegaNumeroElementos(){
-    /* So passa se for maior ou igual a 1 */
+    /* So passa se for maior que 0 e menor ou igual a 500000 */
     do {
         /*Pega o numero de elementos e seta na variavel*/
-        puts("Informe o numero de elementos que você quer trabalhar [0-500.000]");
-        scanf(" %d",&NElementos);
-        if(NElementos <= 0){
+        puts("Informe o numero de elementos que você quer trabalhar [1-500.000]");
+        scanf(" %d", &NElementos);
+        if(NElementos <= 0 || NElementos > 500000){
             printf("Valor Inválido\n");
             pausaLimparTela();
         }
-    } while (NElementos <= 0);
+    } while (NElementos <= 0 || NElementos > 500000);
 }
 
 int geraElementos(int elementos[]) {
-    /* função que gera numeros aleatorios */
+    /* Função que gera numeros aleatorios */
     srand(time(NULL));
     int i;
     for (i = 0; i < NElementos; i++){
@@ -37,7 +37,7 @@ int geraElementos(int elementos[]) {
 }
 
 void maior(int vet[]){
-    /*retorna o maior valor de uma array*/
+    /* Retorna o maior valor de uma array */
     int i;
     int maior = INT_MIN;
     // Tempo inicial
@@ -49,7 +49,7 @@ void maior(int vet[]){
 
     for (i = 0; i < NElementos; i++){
             maior = vet[i] > maior? vet[i]:maior;
-        }
+    }
 
     // Tempo final
     printf("Tempo final  : ");
@@ -59,7 +59,7 @@ void maior(int vet[]){
 }
 
 void menor(int vet[]){
-    /*retorna o menor valor de uma array*/
+    /* Retorna o menor valor de uma array */
     int i;
     int menor = INT_MAX;
     // Tempo inicial
@@ -71,7 +71,7 @@ void menor(int vet[]){
 
     for (i=0;i<NElementos;i++){
             menor = vet[i] < menor? vet[i]:menor;
-        }
+    }
 
     // Tempo final
     printf("Tempo final  : ");
@@ -81,7 +81,7 @@ void menor(int vet[]){
 }
 
 void soma(int vet[]){
-    /*Retorna a soma de todos elementos de um vetor*/
+    /* Retorna a soma de todos elementos de um vetor */
     int i;
     double soma = 0;
     // Tempo inicial
@@ -104,7 +104,7 @@ void soma(int vet[]){
 }
 
 void mostraTempo(){
-    /*retorna tempo atual */
+    /* Retorna tempo atual */
     char tempo;
     time_t rawtime;
     struct tm * timeinfo;
@@ -114,7 +114,7 @@ void mostraTempo(){
 }
 
 void mostraMenu() {
-    /*Layout do menu*/
+    /* Layout do menu */
     puts("#####################################################################");
     puts("# Escolha uma das opções                                            #");
     puts("# 1) Calcula a soma de todos os elementos gerados aleatoriamente    #");
@@ -124,7 +124,7 @@ void mostraMenu() {
 }
 
 void mostraResultado(int opcao, int vet[]){
-    /* Mostra resultado na tela*/
+    /* Mostra resultado na tela */
     switch(opcao) {
     case 1:
         soma(vet);
@@ -146,17 +146,17 @@ void mostraResultado(int opcao, int vet[]){
 }
 
 void pausa() {
-    /* pausa o programa */
+    /* Pausa o programa */
     system("cls");
 }
 
 void pausaLimparTela() {
-    /* pausa o programa e limpa a tela */
+    /* Pausa o programa e limpa a tela */
     system("\npause");
     system("cls");
 }
 
-/* inicio do programa */
+/* Inicio do programa */
 main () {
     localidade();
     pegaNumeroElementos();
@@ -165,12 +165,12 @@ main () {
     pausa();
 
 
-    /*forma um loop infinito mostrando as opções*/
+    /* Forma um loop infinito mostrando as opções */
     int opcao;
 
     while (1) {
         mostraMenu(); // mostra menu
-        scanf("%d",&opcao);  // le uma opção
+        scanf(" %d",&opcao);  // le uma opção
         mostraResultado(opcao,elementos); // mostra resultado
         pausaLimparTela(); // limpa a tela e repete o processo
     }
