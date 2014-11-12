@@ -1,12 +1,12 @@
 /* includes */
-// SO IMPORTE O QUE È REALMENTE NECESSARIO
 #include <stdio.h>
 #include <limits.h>
 #include <time.h>
 #include <locale.h>
+
 /*funções*/
 
-// Essa variavel é global, pois é utilizada em todos as funções do programa
+// Essa variável é global, pois é utilizada em quase todas as funções do programa
 int NElementos;
 
 void localidade(){
@@ -22,12 +22,7 @@ void pegaNumeroElementos(){
         scanf(" %d",&NElementos);
         if(NElementos <= 0){
             printf("Valor Inválido\n");
-            puts("\nprecione qualquer tecla para continuar");
-            // Limpa buffer
-            fflush(stdin);
-            //Trava a tela até que algo aconteça
-            getchar();
-            limparTela();
+            pausaLimparTela();
         }
     } while (NElementos <= 0);
 }
@@ -36,7 +31,7 @@ int geraElementos(int elementos[]) {
     /* função que gera numeros aleatorios */
     srand(time(NULL));
     int i;
-    for (i=0;i<NElementos;i++){
+    for (i = 0; i < NElementos; i++){
         elementos[i] = rand() % (500000 - 1);
     }
 }
@@ -44,68 +39,68 @@ int geraElementos(int elementos[]) {
 void maior(int vet[]){
     /*retorna o maior valor de uma array*/
     int i;
-    int maior=INT_MIN;
+    int maior = INT_MIN;
     // Tempo inicial
-    puts("Tempo inicial: ");
+    printf("\nTempo inicial: ");
     mostraTempo();
     // Diferença em segundos
     clock_t tempo;
 	tempo = clock();
 
-    for (i=0;i<NElementos;i++){
-            maior = vet[i]>maior? vet[i]:maior;
+    for (i = 0; i < NElementos; i++){
+            maior = vet[i] > maior? vet[i]:maior;
         }
 
     // Tempo final
-    puts("Tempo final  : ");
+    printf("Tempo final  : ");
     mostraTempo();
-    printf("Tempo total  : %4.3f segundos\n\n",(clock() - tempo) / (double)CLOCKS_PER_SEC);
-    printf("[Maior Numero: %d]\n\n",maior);
+    printf("Tempo total  : %4.3f segundos\n\n", (clock() - tempo) / (double)CLOCKS_PER_SEC);
+    printf("[Maior Numero: %d]\n\n", maior);
 }
 
 void menor(int vet[]){
     /*retorna o menor valor de uma array*/
     int i;
-    int menor=INT_MAX;
+    int menor = INT_MAX;
     // Tempo inicial
-    puts("Tempo inicial: ");
+    printf("\nTempo inicial: ");
     mostraTempo();
     // Diferença em segundos
     clock_t tempo;
 	tempo = clock();
 
     for (i=0;i<NElementos;i++){
-            menor = vet[i]<menor? vet[i]:menor;
+            menor = vet[i] < menor? vet[i]:menor;
         }
 
     // Tempo final
-    puts("Tempo final  : ");
+    printf("Tempo final  : ");
     mostraTempo();
-    printf("Tempo total  : %4.3f segundos\n\n",(clock() - tempo) / (double)CLOCKS_PER_SEC);
-    printf("[Menor Numero: %d]\n",menor);
+    printf("Tempo total  : %4.3f segundos\n\n", (clock() - tempo) / (double)CLOCKS_PER_SEC);
+    printf("[Menor Numero: %d]\n\n",menor);
 }
 
 void soma(int vet[]){
     /*Retorna a soma de todos elementos de um vetor*/
     int i;
-    int long soma=0;
+    double soma = 0;
     // Tempo inicial
-    puts("Tempo inicial: ");
+    printf("\nTempo inicial: ");
     mostraTempo();
     // Diferença em segundos
     clock_t tempo;
 	tempo = clock();
 
-    for (i=0;i<NElementos;i++) {
-        soma += vet[i];
+    for (i = 0; i < NElementos; i++) {
+        soma += (int) vet[i];
     }
 
     // Tempo final
-    puts("Tempo final  : ");
+    printf("Tempo final  : ");
     mostraTempo();
     // Mostra diferença em segundos
-    printf("Tempo total  : %4.3f segundos\n\n",(clock() - tempo) / (double)CLOCKS_PER_SEC);
-    printf("[Soma total  : %d]\n\n",soma);
+    printf("Tempo total  : %4.3f segundos\n\n", (clock() - tempo) / (double)CLOCKS_PER_SEC);
+    printf("[Soma total  : %.0f]\n\n", soma);
 }
 
 void mostraTempo(){
@@ -147,16 +142,18 @@ void mostraResultado(int opcao, int vet[]){
         puts("Opção Inválida");
         break;
     }
-    puts("\nprecione qualquer tecla para continuar");
-    // Limpa buffer
-    fflush(stdin);
-    //Trava a tela até que algo aconteça
-    getchar();
+
 }
 
-void limparTela() {
-    /*Limpa tela em windows/linux*/
-    system("clear || cls");
+void pausa() {
+    /* pausa o programa */
+    system("cls");
+}
+
+void pausaLimparTela() {
+    /* pausa o programa e limpa a tela */
+    system("\npause");
+    system("cls");
 }
 
 /* inicio do programa */
@@ -165,15 +162,17 @@ main () {
     pegaNumeroElementos();
     int elementos[NElementos];
     elementos[NElementos] = geraElementos(elementos);
-    limparTela();
+    pausa();
+
 
     /*forma um loop infinito mostrando as opções*/
     int opcao;
-    while(1){
-    mostraMenu(); // mostra menu
-    scanf("%d",&opcao);  // le uma opção
-    mostraResultado(opcao,elementos); // mostra resultado
-    limparTela(); // limpa a tela e repete o processo
+
+    while (1) {
+        mostraMenu(); // mostra menu
+        scanf("%d",&opcao);  // le uma opção
+        mostraResultado(opcao,elementos); // mostra resultado
+        pausaLimparTela(); // limpa a tela e repete o processo
     }
 
 }
