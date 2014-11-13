@@ -1,0 +1,70 @@
+\documentclass[]{article}
+
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+
+\title{PI - Estruturas Discretas}
+\date{}
+\author{Caio Marinho Americo \\ Isvaldo \\ Josinaldo \\ Marcio \\ Carlos Renato \\ Caique}
+
+\begin{document}
+
+\begin{titlepage}
+	\maketitle
+\end{titlepage}
+
+ 
+\section{Introdução}
+ Nesse trabalho iremos abordar a quantidade de possibilidades que existem para a criação de nome de usuário e senha. Serão considerados as 26 letra do alfabeto, com diferenciação entre maiúscula e minúscula; 10 números, de 0 até 9; e 4 caracteres especiais: ".", "@", "\--" e "\textunderscore".
+ 
+ 
+ \section{Desenvolvimento}
+ \subsection{Nome de Usuário}
+ 
+ Para a criação do nome de usuário não haverá nenhuma regra especial, só será necessário ter no mínimo 4 e no máximo 64 caracteres.
+ 
+ \begin{math}
+ \\Letras\;Mai\acute{u}sculas\;=\;26
+ \\Letras\;Min\acute{u}sculas\;=\;26
+ \\N\acute{u}meros\;=\;10
+ \\Caracteres\;Especiais\;=\;4
+ \\Total\;=\;66
+ \end{math}
+ 
+ \begin{math}
+ \\4\;caracteres \rightarrow 66\cdot66\cdot66\cdot66\;=\;66^{4} 
+ \\5\;caracteres \rightarrow 66\cdot66\cdot66\cdot66\cdot66\;=\;66^{5}
+ \\\vdots
+ \\n\;caracteres \rightarrow 66\cdot66\cdot66\cdot66\cdot \;\ldots\; \cdot66\;=\;66^{n}  
+ \end{math}
+ 
+ \begin{math}
+ \\Total\;=\;\sum_{n = 4}^{64}66^{n} 
+ \end{math}
+ 
+ \subsection{Senha}
+ 
+ Para a criação da senha será considerado necessário a presença de pelos menos uma letra maiúscula, uma minúscula e um número. Além disso será necessário ter pelo menos 6 e no máximo 64 caracteres.
+ 
+ \begin{math}
+ 	\\Letras\;Mai\acute{u}sculas\;=\;26
+ 	\\Letras\;Min\acute{u}sculas\;=\;26
+ 	\\N\acute{u}meros\;=\;10
+ 	\\Caracteres\;Especiais\;=\;4
+ 	\\Total\;=\;66
+ \end{math}
+ 
+  $\\$Nesse caso, devido as considerações especiais, terão duas casas na multiplicação que será preenchidas por 26, considerando que precisa haver pelo menos uma letra maiúscula e uma minúscula, e outra que será preenchida por 10, considerando que precisa haver pelo menos um número.$\\$$\\$$\\$
+ 
+ \begin{math}
+ 	\\6\;caracteres \rightarrow 26\cdot26\cdot10\cdot66\cdot66\cdot66\;=\;6760\cdot66^{3} 
+ 	\\7\;caracteres \rightarrow 26\cdot26\cdot10\cdot66\cdot66\cdot66\cdot66\;=\;6760\cdot66^{4}
+ 	\\\vdots
+ 	\\n\;caracteres \rightarrow 26\cdot26\cdot10\cdot66\cdot66\cdot \;\ldots\; \cdot66\;=\;6760\cdot66^{n - 3}  
+ \end{math}
+ 
+ \begin{math}
+ 	\\Total\;=\;6760\cdot\sum_{n = 6}^{64}66^{n - 3} 
+ \end{math}
+
+\end{document}
