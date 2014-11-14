@@ -4,7 +4,7 @@ public class Empresa {
 	private String nome;
 	private int cnpj;
 	
-	float eviar_consumo (float f) {
+	float enviar_consumo (float f) {
 		return f;
 	}
 	
