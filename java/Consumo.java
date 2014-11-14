@@ -1,37 +1,44 @@
 
-public class Relatorio {
+public class Consumo {
 	
-	private String descricao;
-	private int empresa_id, administrador_id;
+	private float kwh_luz, litros_agua;
+	private int beneficiario_id;
 	
-	public String enviar_Relatorio() {
-		String relatorio = "";
+	public float calcular_Conta() {
+		float conta = 0;
 		
-		return relatorio;
+		return conta;
 	}
 	
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public float recalcular() {
+		float conta = 0;
+		
+		return conta;
 	}
 	
-	public String getDescricao() {
-		return descricao;
+	public void setKwh_Luz(float kwh_luz) {
+		this.kwh_luz = kwh_luz;
 	}
 	
-	public void setEmpresa_Id(int empresa_id) {
-		this.empresa_id = empresa_id;
+	public float getKwh_Luz() {
+		return kwh_luz;
 	}
 	
-	public int getEmpresa_Id() {
-		return empresa_id;
+	public void setLitros_Agua(float litros_agua) {
+		this.litros_agua = litros_agua;
 	}
 	
-	public void setAdministrador_Id(int administrador_id) {
-		this.administrador_id = administrador_id;
+	public float getLitros_Agua() {
+		return litros_agua;
 	}
 	
-	public int getAdministrador_Id() {
-		return administrador_id;
+	public void setBeneficiario_Id(int beneficiario_id) {
+		this.beneficiario_id = beneficiario_id;
 	}
+	
+	public int getBeneficiario_Id() {
+		return beneficiario_id;
+	}
+	
 
 }
