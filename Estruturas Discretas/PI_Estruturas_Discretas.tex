@@ -1,28 +1,116 @@
 \documentclass[]{article}
 
+
+% ---
+% PACOTES
+% ---
+
+% ---
+% Pacotes fundamentais 
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
 \usepackage[brazilian]{babel}
-\usepackage[utf8]{inputenc}
 
-\title{PI - Estruturas Discretas}
-\date{}
-\author{Caio Marinho Americo \\ Isvaldo \\ Josinaldo \\ Marcio \\ Carlos Renato \\ Caique}
 
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+% ---
+% Cabeçalho
+% ---
 \begin{document}
-
 \begin{titlepage}
-	\maketitle
+\begin{center}
+% Upper part of the page. The '~' is needed because \\
+% only works if a paragraph has started.
+\includegraphics{./titulo.png}
+
+\textsc{\LARGE Instituto Infnet}\\[1.5cm]
+
+\textsc{\Large Projeto Integrado}\\[0.5cm]
+
+% Title
+\HRule \\[0.4cm]
+{ \huge \bfseries Milhagem Sustentável \\[0.4cm] }
+
+\HRule \\[1.5cm]
+% Author and supervisor
+\noindent
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Autores:}\\
+Isvaldo \textsc{Fernandes}\\
+Caio \textsc{Americo}\\
+Josinaldo \textsc{Barbosa}\\
+Marcio \textsc{Telles}\\
+Caique \textsc{Santos}\\
+Carlos \textsc{Renato}
+\end{flushleft}
+\end{minipage}%
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Professor:} \\
+Daniela R \textsc{Monteiro}
+\end{flushright}
+\end{minipage}
+
+\vfill
+
+% Footer !
+{\large Rio de Janeiro}\\
+{\large \today}
+
+\end{center}
 \end{titlepage}
 
+% ---
+% SUMARIO Magico xD
+% ---
+\tableofcontents
+
+% ---
+% INTRODUCAO
+% ---
+ \section {Introdução}
+ O mundo está em um processo de aceleração de crescimento: a produção cresce de forma exponencial, fábricas, industrias, até mesmo a população está crescendo e consumindo mais do que precisa. Tudo isso está gerando um impacto terrível no meio ambiente; as indústrias estão gerando cada vez mais poluição no ambiente e isso, a longo prazo, pode causar um impacto desastroso. A explosão da população e do seu consumo estão colocando o ambiente em segundo plano, estamos consumindo de tal maneira que nosso planeta não está conseguindo se manter estável; como não temos outro planeta, precisamos agir o quanto antes para evitar uma maior calamidade. Pensando nisso, algumas organizações já estão lutando contra o tempo; algumas empresas também estão pensando de forma sustentável, gerando propaganda de conscientização de preservação ao meio ambiente. Com pequenas ações como poupar energia elétrica e água, separar o lixo e descartando-o de maneira correta, você já está ajudando o seu planeta, essas medidas são benéficas as empresas e também ao mundo.
+
+Pensando nessas empresas e pessoas que querem ajudar na luta contra poluição do planeta, elaboramos uma forma inteligente e informatizada de ajudar ambas a concluírem seus objetivos. Imaginamos um sistema capaz de gerenciar ações em favor do meio ambiente. Mas, além disso, pensamos em uma forma de beneficiar essas pessoas por cada ação feita, seja ela na redução do consumo de energia ou na entrega de material reciclado, pensamos em um local de troca onde cada pessoa possa usufruir de suas boas ações para com ambiente. Nesse sistema de trocas todos vão sair ganhando, as pessoas, as empresas e nosso planeta, principalmente.
+
+Tendo isso em mente, o nosso objetivo é desenvolver um sistema computacional capaz de gerenciar trocas de ações sustentáveis. O sistema vai abrir uma comunicação com público geral tornando a disseminação da ideia de sustentabilidade mais rápida e motivante entre os usuários do sistema, através de um esquema de trocas e benefícios por cada ação prestada. Chamamos esse projeto de "Milhagem Sustentável".
+
+Milhagem Sustentável é um sistema que vai mostrar o quanto as pessoas estão dispostas a ir para salvar seu planeta; essas distâncias imaginárias estão ligadas as ações que podem mudar o mundo, como economia de energia, de água, separar o lixo, entre outras ações simples que mostram o quão longe você iria para ajudar o seu planeta. Essa analogia vem do sistema de milhagem, onde o acúmulo de pontos permite a realização de viagens com tudo pago; nesse caso porém, os pontos de milhas sustentáveis podem ser trocados por produtos sustentáveis ou bonificações das empresas participantes.
+
+Esse sistema que computa e distribúi as "milhas" será informatizado e online, permitindo assim, a comunicação direta entre nós e os benefeciários e a gestão dessas "milhas". Para isso, teremos que fazer com que eles se cadastrem para usufruir do sistema.
+
+% ---
+% SEGURANÇA
+% ---
+\subsection{Segurança}
+Com base nesse mini-mundo descrito categoricamente, surgiu a necessidade de se elaborar uma proteção com autenticação via web, requirindo usuario e senha, isso signigica armazenar nome e senha de usuarios, esse fato desencadeia a necessidade de calcular a quantidade exata de usuarios e senhas em nosso sistema.
  
-\section{Introdução}
+% ---
+% OBJETIVO ESPECIFICO
+% ---
+\section{Objetivo Especifico}
  Nesse trabalho iremos abordar a quantidade de possibilidades que existem para a criação de nome de usuário e senha. Serão considerados as 26 letra do alfabeto, com diferenciação entre maiúscula e minúscula; 10 números, de 0 até 9; e 4 caracteres especiais: ".", "@", "\--" e "\textunderscore".
  
- 
+% ---
+% DESENVOLVIMENTO
+% ---
  \section{Desenvolvimento}
+
+% ---
+% USUARIO
+% ---
  \subsection{Nome de Usuário}
  
  Para a criação do nome de usuário não haverá nenhuma regra especial, só será necessário ter no mínimo 4 e no máximo 64 caracteres.
  
+ % Listagem de letras (requisitos)
  \begin{math}
  \\Letras\;Mai\acute{u}sculas\;=\;26
  \\Letras\;Min\acute{u}sculas\;=\;26
@@ -31,6 +119,8 @@
  \\Total\;=\;66
  \end{math}
  
+ % Descrição do raciocinio
+ 
  \begin{math}
  \\4\;caracteres \rightarrow 66\cdot66\cdot66\cdot66\;=\;66^{4} 
  \\5\;caracteres \rightarrow 66\cdot66\cdot66\cdot66\cdot66\;=\;66^{5}
@@ -38,14 +128,19 @@
  \\n\;caracteres \rightarrow 66\cdot66\cdot66\cdot66\cdot \;\ldots\; \cdot66\;=\;66^{n}  
  \end{math}
  
+ %SOMATORIO (USUARIO)
+ 
  \begin{math}
  \\Total\;=\;\sum_{n = 4}^{64}66^{n} 
  \end{math}
  
+% ---
+% SENHA
+% ---
  \subsection{Senha}
  
  Para a criação da senha será considerado necessário a presença de pelos menos uma letra maiúscula, uma minúscula e um número. Além disso será necessário ter pelo menos 6 e no máximo 64 caracteres.
- 
+ % Listagem de letras (requisitos)
  \begin{math}
  	\\Letras\;Mai\acute{u}sculas\;=\;26
  	\\Letras\;Min\acute{u}sculas\;=\;26
@@ -55,6 +150,8 @@
  \end{math}
  
   $\\$Nesse caso, devido as considerações especiais, terão duas casas na multiplicação que será preenchidas por 26, considerando que precisa haver pelo menos uma letra maiúscula e uma minúscula, e outra que será preenchida por 10, considerando que precisa haver pelo menos um número.$\\$$\\$$\\$
+  
+ % Descrição do raciocinio
  
  \begin{math}
  	\\6\;caracteres \rightarrow 26\cdot26\cdot10\cdot66\cdot66\cdot66\;=\;6760\cdot66^{3} 
@@ -62,7 +159,7 @@
  	\\\vdots
  	\\n\;caracteres \rightarrow 26\cdot26\cdot10\cdot66\cdot66\cdot \;\ldots\; \cdot66\;=\;6760\cdot66^{n - 3}  
  \end{math}
- 
+ %SOMATORIO (SENHA)
  \begin{math}
  	\\Total\;=\;6760\cdot\sum_{n = 6}^{64}66^{n - 3} 
  \end{math}
