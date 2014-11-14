@@ -20,6 +20,22 @@ public class Empresa {
 		
 	}
 	
+	public void setNome (String nome) {
+		this.nome = nome;
+	}
+	
+	public String getNome () {
+		return nome;
+	}
+	
+	public void setCnpj (int cnpj) {
+		this.cnpj = cnpj;
+	}
+	
+	public int getCnpj () {
+		return cnpj;
+	}
+	
 	
 
 }
