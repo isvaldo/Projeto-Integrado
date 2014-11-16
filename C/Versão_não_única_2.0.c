@@ -107,7 +107,7 @@ void soma(int vet[], int nElementos) {
     printf("Tempo final  : ");
     mostraTempo();
     // Mostra diferença em segundos
-    printf("Tempo total  : %4.3f segundos\n\n", (clock() - tempo) / (double)CLOCKS_PER_SEC);
+    printf("Tempo total  : %4.3f segundos\n\n", ((clock() - tempo)*1000) / (double)CLOCKS_PER_SEC);
     printf("[Soma total  : %.0f]\n\n", soma);
 }
 
