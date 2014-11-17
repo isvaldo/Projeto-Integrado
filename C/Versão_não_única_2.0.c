@@ -80,7 +80,7 @@ void soma(int vet[], int Nelementos) {
     double soma = 0;
 
     for (i = 0; i < Nelementos; i++) {
-        soma += (int) vet[i];
+        soma += (float) vet[i];
     }
 
     printf("\n[Soma total  : %.0f]\n\n", soma);
