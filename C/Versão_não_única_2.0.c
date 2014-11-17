@@ -126,11 +126,12 @@ void mostraResultado(int opcao, int vet[], int Nelementos) {
         break;
     }
 
-    t2 = clock();
+    if(opcao >= 1 && opcao <= 3){
+        t2 = clock();
 
-    float diff = (((float)t2 - (float)t1) / 1000000.0F ) * 1000;
-    printf("[Tempo de execução: %f]\n\n",diff);
-
+        float diff = (((float)t2 - (float)t1) / 1000000.0F ) * 1000;
+        printf("[Tempo de execução: %f]\n\n",diff);
+    }
 
 }
 
