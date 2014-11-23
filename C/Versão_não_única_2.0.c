@@ -1,3 +1,10 @@
+/* 
+Projeto integrado de Técnicas de Programação
+
+Turma: GADS2014M-02-T3 - Manhã
+Grupo: Caio Marinho Americo, Isvaldo Fernandes, Josinaldo Barbosa, Marcio Telles, Caique Santos, Carlos Renato 
+*/
+
 /* includes */
 #include <stdio.h>
 #include <limits.h>
