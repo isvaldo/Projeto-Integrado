@@ -5,7 +5,7 @@
 #include <locale.h>
 #include <stdlib.h>
 
-/*constante global usada no programa todo*/
+/*constante global usada no programa todo indicando o máximo de números possíveis a serem gerados*/
 int const N = 500000;
 
 /* Funções */
