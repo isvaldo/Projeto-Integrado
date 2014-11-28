@@ -4,5 +4,9 @@
 \contentsline {section}{\numberline {2}Objetivo Especifico}{2}
 \contentsline {section}{\numberline {3}Desenvolvimento}{2}
 \contentsline {subsection}{\numberline {3.1}Nome de Usu\IeC {\'a}rio}{2}
+<<<<<<< HEAD
 \contentsline {subsection}{\numberline {3.2}Senha}{2}
+=======
+\contentsline {subsection}{\numberline {3.2}Senha}{3}
+>>>>>>> 1fa923bacbe7312206d3feb3773b037447c8218f
 \contentsline {section}{\numberline {4}Conclus\IeC {\~a}o}{3}
